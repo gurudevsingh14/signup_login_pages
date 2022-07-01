@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:signup_login_pages/Screens/components/background.dart';
 import 'package:signup_login_pages/Screens/components/roundButton.dart';
+import 'package:signup_login_pages/Screens/signupScreen.dart';
 import 'package:signup_login_pages/constants.dart';
 import 'components/roundInputButton.dart';
 class LoginScreen extends StatelessWidget {
@@ -28,31 +29,20 @@ class LoginScreen extends StatelessWidget {
                   SizedBox(height: 20,),
                   RoundButton(text: 'Login', textColor: Colors.white, buttonColor: kprimaryColor, press: (){}),
                   SizedBox(height: 20,),
-                  Text("Don't have an Account?"),
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                      children:[Text("Don't have an Account ? "),
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return SignupScreen();
+                          }));
+                        },
+                          child: Text('Signup',style: TextStyle(color: Colors.blue[700]),),
+                      )]),
                 ],
               ),
             )),
       ),
-    );
-
-    return  Material(
-      color: kprimaryColor,
-      child: Background(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Login',style: TextStyle(color: kprimaryColor,),),
-            Image.asset('assets/icons/login.png'),
-            SizedBox(height: 20,),
-            RoundInputButton(hintText: 'Email',icon: Icon(Icons.person,color: kprimaryColor,),obscureText: null),
-            SizedBox(height: 20,),
-            RoundInputButton(icon: Icon(Icons.lock,color: kprimaryColor,), hintText: 'Password',obscureText: true),
-            SizedBox(height: 20,),
-            RoundButton(text: 'Login', textColor: Colors.white, buttonColor: kprimaryColor, press: (){}),
-            SizedBox(height: 20,),
-            Text("Don't have an Account?"),
-          ],
-      )),
     );
   }
 }

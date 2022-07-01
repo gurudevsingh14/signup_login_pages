@@ -4,7 +4,7 @@ class RoundButton extends StatelessWidget {
   final Color textColor;
   final Color buttonColor;
   final String text;
-  final Function press;
+  final  press;
   const RoundButton({
     Key? key,
     required this.text,
@@ -20,7 +20,7 @@ class RoundButton extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(size.width*0.7),
         child: FlatButton(padding: EdgeInsets.symmetric(horizontal: 20,vertical: 14),
-            onPressed:(){},
+            onPressed:press,
             color: buttonColor,
             child: Text(
               text,style: TextStyle(fontSize: 16,color: textColor),

@@ -16,7 +16,7 @@ class RoundInputButton extends StatefulWidget {
 class _RoundInputButtonState extends State<RoundInputButton> {
 
 
-  bool pressed=false;
+  bool pressed=true;
 
   @override
   Widget build(BuildContext context) {
